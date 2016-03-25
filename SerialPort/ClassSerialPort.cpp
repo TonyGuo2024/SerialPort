@@ -47,7 +47,7 @@ bool ClassSerialPort::InitPort(unsigned int port,unsigned int baud,unsigned int 
 		return false;
 	}
 
-	bool bIsSuccess = true;
+	BOOL bIsSuccess = true;
 	//设置串口超时时间,均设为0表示不使用超时限制
 	COMMTIMEOUTS CommimeOuts;
 	CommimeOuts.ReadIntervalTimeout = 0;
@@ -90,7 +90,7 @@ bool ClassSerialPort::InitPort(unsigned int port,unsigned int baud,unsigned int 
 ************************************************************************/
 bool ClassSerialPort::WriteData(const char *data,unsigned int dataLength)
 {
-	bool bResult = true;
+	BOOL bResult = true;
 	DWORD BytesToSend = 0;
 	if (m_hCom == INVALID_HANDLE_VALUE)
 	{
@@ -130,7 +130,7 @@ bool ClassSerialPort::WriteData(const char *data,unsigned int dataLength)
 ************************************************************************/
 bool ClassSerialPort::ReadData(char *readData,int waitTime)
 {
-	bool bResult = true;
+	BOOL bResult = true;
 	DWORD BytesRead = 0;
 	if (m_hCom == INVALID_HANDLE_VALUE)
 	{
@@ -181,6 +181,6 @@ long ClassSerialPort::GetMyCurrentTime(void)
 {
 	time_t now_time;
 	now_time = time(NULL);
-	long currentTime = now_time;
+	long currentTime = (long)now_time;
 	return currentTime;
 }

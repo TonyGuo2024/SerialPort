@@ -1,0 +1,6 @@
+LIBRARY SerialPort
+EXPORTS
+InitialPort @1
+WriteDataToPort @2
+ReadDataFromPort @3
+ClosePort @4
